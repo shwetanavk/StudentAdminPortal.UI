@@ -18,6 +18,7 @@ export class StudentsComponent implements OnInit {
     'dateOfBirth',
     'email',
     'mobile',
+    'address',
     'gender',
     'edit',
   ];

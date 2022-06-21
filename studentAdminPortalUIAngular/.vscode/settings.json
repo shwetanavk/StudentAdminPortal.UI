@@ -1,0 +1,11 @@
+{
+  "files.exclude": {
+    "karma.conf.js": true,
+    "tsconfig.spec.json": true,
+    "tsconfig.json": true,
+    ".editorconfig": true,
+    ".browserslistrc": true,
+    "package.json": true,
+    "tsconfig.app.json": true
+  }
+}

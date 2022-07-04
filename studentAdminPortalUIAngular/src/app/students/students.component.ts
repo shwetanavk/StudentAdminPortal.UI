@@ -18,10 +18,10 @@ export class StudentsComponent implements OnInit {
     'dateOfBirth',
     'email',
     'mobile',
-    'address',
     'gender',
     'edit',
   ];
+  // 'Address',
   dataSource: MatTableDataSource<Student> = new MatTableDataSource<Student>();
   @ViewChild(MatPaginator) matPaginator!: MatPaginator;
   @ViewChild(MatSort) matSort!: MatSort;

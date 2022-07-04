@@ -52,9 +52,16 @@ import { StudentsComponent } from './students/students.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentService } from './students/student.service';
 import { FormsModule } from '@angular/forms';
+import { ViewStudentComponent } from './students/view-student/view-student.component';
+import { GenderService } from './services/gender.service';
 
 @NgModule({
-  declarations: [AppComponent, TopNavComponent, StudentsComponent],
+  declarations: [
+    AppComponent,
+    TopNavComponent,
+    StudentsComponent,
+    ViewStudentComponent,
+  ],
   imports: [
     FormsModule,
     BrowserModule,
@@ -100,7 +107,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [StudentService],
+  providers: [StudentService, GenderService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -98,19 +98,19 @@ export class ViewStudentComponent implements OnInit {
   }
 
   onDelete(): void {
-    // this.studentService.deleteStudent(this.student.id).subscribe(
-    //   (successResponse) => {
-    //     this.snackbar.open('Student deleted successfully', undefined, {
-    //       duration: 2000,
-    //     });
-    //     setTimeout(() => {
-    //       this.router.navigateByUrl('students');
-    //     }, 2000);
-    //   },
-    //   (errorResponse) => {
-    //     // Log
-    //   }
-    // );
+    this.studentService.deleteStudent(this.student.id).subscribe(
+      (successResponse) => {
+        this.snackbar.open('Student deleted successfully', undefined, {
+          duration: 2000,
+        });
+        setTimeout(() => {
+          this.router.navigateByUrl('students');
+        }, 2000);
+      },
+      (errorResponse) => {
+        // Log
+      }
+    );
   }
 
   onAdd(): void {

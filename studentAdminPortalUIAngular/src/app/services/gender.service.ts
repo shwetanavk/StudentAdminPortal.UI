@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { environment } from 'src/environments/environment';
 import { Gender } from '../models/api-models/gender.model';
 
 @Injectable()
 export class GenderService {
-  private baseApiUrl = 'https://localhost:7069';
+  private baseApiUrl = environment.baseApiUrl;
 
   constructor(private httpClient: HttpClient) {}
 

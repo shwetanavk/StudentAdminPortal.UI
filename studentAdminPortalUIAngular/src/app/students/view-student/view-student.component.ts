@@ -116,48 +116,49 @@ export class ViewStudentComponent implements OnInit {
   onAdd(): void {
     if (this.studentDetailsForm?.form.valid) {
       // // Submit form date to api
-      // this.studentService.addStudent(this.student).subscribe(
-      //   (successResponse) => {
-      //     this.snackbar.open('Student added successfully', undefined, {
-      //       duration: 2000,
-      //     });
-      //     setTimeout(() => {
-      //       this.router.navigateByUrl(`students/${successResponse.id}`);
-      //     }, 2000);
-      //   },
-      //   (errorResponse) => {
-      //     // Log
-      //     console.log(errorResponse);
-      //   }
-      // );
+      this.studentService.addStudent(this.student).subscribe(
+        (successResponse) => {
+          this.snackbar.open('Student added successfully', undefined, {
+            duration: 2000,
+          });
+          setTimeout(() => {
+            this.router.navigateByUrl(`students/${successResponse.id}`);
+          }, 2000);
+        },
+        (errorResponse) => {
+          // Log
+          console.log(errorResponse);
+        }
+      );
     }
   }
 
   uploadImage(event: any): void {
     if (this.studentId) {
-      // const file: File = event.target.files[0];
-      // this.studentService.uploadImage(this.student.id, file).subscribe(
-      //   (successResponse) => {
-      //     this.student.profileImageUrl = successResponse;
-      //     this.setImage();
-      //     // Show a notification
-      //     this.snackbar.open('Profile Image Updated', undefined, {
-      //       duration: 2000,
-      //     });
-      //   },
-      //   (errorResponse) => {}
-      // );
+      const file: File = event.target.files[0];
+      this.studentService.uploadImage(this.student.id, file).subscribe(
+        (successResponse) => {
+          this.student.profileImageUrl = successResponse;
+          this.setImage();
+          // Show a notification
+          this.snackbar.open('Profile Image Updated', undefined, {
+            duration: 2000,
+          });
+        },
+        (errorResponse) => {}
+      );
     }
   }
 
   private setImage(): void {
-    // if (this.student.profileImageUrl) {
-    //   this.displayProfileImageUrl = this.studentService.getImagePath(
-    //     this.student.profileImageUrl
-    //   );
-    // } else {
-    //   // Display a default
-    //   this.displayProfileImageUrl = '/assets/user.png';
-    // }
+    if (this.student.profileImageUrl) {
+      this.displayProfileImageUrl = this.studentService.getImagePath(
+        this.student.profileImageUrl
+      );
+    } else {
+      console.log('else image');
+      // Display a default
+      this.displayProfileImageUrl = '/assets/user.jpg';
+    }
   }
 }
